@@ -12,9 +12,6 @@ function rotateHeader() {
   header.style.transform = 'rotateX(' + degree + 'deg)';
 }
 
-
-
-
 const distanceBetween = ( p1x, p1y, p2x, p2y ) => {
   const dx = p1x-p2x;
   const dy = p1y-p2y;
@@ -42,11 +39,13 @@ document.addEventListener( 'mousemove', event => {
 } );
 
 const nocheat = () => button.textContent = 'チート禁止！！';
-const notouch = () => button.textContent = 'タッチは使えないよ';
+const notouch = () => button.textContent = 'タッチは使わないでね';
 
 button.addEventListener( 'click', event => {
+    if (button.textContent != 'タッチは使わないでね'){
     button.textContent = 'おめでとう！🎉' ;
     setInterval(rotateHeader, 20);
+}
 })
 button.addEventListener( 'keydown', event => { event.preventDefault(); nocheat(); } );
 button.click = nocheat;
