@@ -43,10 +43,11 @@ const notouch = () => button.textContent = 'タッチ禁止！！';
 
 button.addEventListener( 'click', event => {
 		if (button.textContent != 'タッチ禁止！！'){
-		button.textContent = 'おめでとう！🎉' ;
-		setInterval(rotateHeader, 20);
-		}
-		button.textContent = '回転';
+      button.textContent = 'おめでとう！🎉' ;
+      setInterval(rotateHeader, 20);
+		} else {
+      button.textContent = '回転';
+	}
 		})
 
 button.addEventListener( 'keydown', event => { event.preventDefault(); nocheat(); } );
