@@ -18,6 +18,7 @@ const distanceBetween = ( p1x, p1y, p2x, p2y ) => {
 	return Math.sqrt( dx*dx + dy*dy );
 };
 
+// マウス移動時のイベントリスナー
 document.addEventListener( 'mousemove', event => {
 		const radius = Math.max( button.offsetWidth*0.75, button.offsetHeight*0.75, 100 );
 
@@ -38,6 +39,7 @@ document.addEventListener( 'mousemove', event => {
 		button.style.boxShadow = `0px ${Math.abs(oy)}px ${Math.abs(oy)/radius*40}px rgba(0,0,0,0.15)`;
 		} );
 
+// ボタンクリック時のイベントリスナー
 const nocheat = () => button.textContent = 'チート禁止！！';
 const notouch = () => button.textContent = 'タッチ禁止！！';
 
@@ -53,5 +55,6 @@ button.addEventListener( 'click', event => {
 button.addEventListener( 'keydown', event => { event.preventDefault(); nocheat(); } );
 button.click = nocheat;
 
+// モバイルデバイスでの処理
 if( navigator.userAgent.match( /Android|iPhone|iPad|iPod/i ) ) notouch();
 window.addEventListener( 'touchstart', notouch );
